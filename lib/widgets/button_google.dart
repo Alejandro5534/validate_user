@@ -22,8 +22,8 @@ class ButtonGoogle extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(5.0),
             child: Container(
-              width: 35,
-              height: 35,
+              width: 25,
+              height: 25,
               child: Image.network(
                   'https://cdn.icon-icons.com/icons2/729/PNG/512/google_icon-icons.com_62736.png'),
             ),
@@ -33,10 +33,7 @@ class ButtonGoogle extends StatelessWidget {
           ),
           Text(
             text,
-            style: TextStyle(
-                fontSize: 18,
-                color:
-                    this.backgroundColor != null ? Colors.white : Colors.black),
+            style: TextStyle(fontSize: 20, color: Colors.black),
           ),
         ],
       ),
@@ -44,7 +41,7 @@ class ButtonGoogle extends StatelessWidget {
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(18))),
       splashColor: splashColor,
-      color: this.backgroundColor != null ? this.backgroundColor : Colors.white,
+      color: Colors.white,
     );
   }
 }

@@ -37,6 +37,11 @@ class AppPage extends StatelessWidget {
         padding: const EdgeInsets.all(10.0),
         child: Stack(
           children: [
+            Obx(() => menuAppController.isDashboard.value
+                ? Align(
+                    alignment: Alignment.bottomRight,
+                    child: Image(image: AssetImage('assets/wiximo_agua.png')))
+                : Container()),
             Column(
               children: [
                 MenuAppWidget(),
@@ -46,9 +51,6 @@ class AppPage extends StatelessWidget {
                     : AgendaWidget())
               ],
             ),
-            Align(
-                alignment: Alignment.bottomRight,
-                child: Image(image: AssetImage('assets/wiximo_agua.png'))),
           ],
         ),
       ),

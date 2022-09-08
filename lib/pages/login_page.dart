@@ -21,7 +21,7 @@ class LoginPage extends StatelessWidget {
                   ),
                   Text(
                     'Iniciar sesión',
-                    style: TextStyle(fontSize: 32),
+                    style: TextStyle(fontSize: 25),
                   ),
                   SizedBox(height: 20),
                   ButtonGoogle(() async {

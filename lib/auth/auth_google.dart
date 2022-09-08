@@ -4,24 +4,28 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthGoogle {
   static Future<User?> googleLogin({required BuildContext context}) async {
-    FirebaseAuth auth = FirebaseAuth.instance;
-    User? user;
-    GoogleSignIn googleSignIn = GoogleSignIn();
-    GoogleSignInAccount? googleSignInAccount = await googleSignIn.signIn();
-    if (googleSignInAccount != null) {
-      GoogleSignInAuthentication googleSignInAuthentication =
-          await googleSignInAccount.authentication;
-      AuthCredential credential = GoogleAuthProvider.credential(
-          accessToken: googleSignInAuthentication.accessToken,
-          idToken: googleSignInAuthentication.idToken);
-      try {
-        UserCredential userCredential =
-            await auth.signInWithCredential(credential);
-        user = userCredential.user;
-        return user;
-      } on FirebaseAuthException catch (e) {
-        print("Error al autenticar google");
+    try {
+      FirebaseAuth auth = FirebaseAuth.instance;
+      User? user;
+      GoogleSignIn googleSignIn = GoogleSignIn();
+      GoogleSignInAccount? googleSignInAccount = await googleSignIn.signIn();
+      if (googleSignInAccount != null) {
+        GoogleSignInAuthentication googleSignInAuthentication =
+            await googleSignInAccount.authentication;
+        AuthCredential credential = GoogleAuthProvider.credential(
+            accessToken: googleSignInAuthentication.accessToken,
+            idToken: googleSignInAuthentication.idToken);
+        try {
+          UserCredential userCredential =
+              await auth.signInWithCredential(credential);
+          user = userCredential.user;
+          return user;
+        } on FirebaseAuthException catch (e) {
+          print("Error al autenticar google");
+        }
       }
+    } on Exception catch (e) {
+      print("Error al querer conectar con servicios de google $e");
     }
   }
 

@@ -62,7 +62,9 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                           () => Text(
                             '${userFirebaseController.numberPendings.value}',
                             style: TextStyle(
-                                fontSize: 70, fontWeight: FontWeight.bold),
+                                color: Color.fromARGB(255, 64, 187, 198),
+                                fontSize: 70,
+                                fontWeight: FontWeight.bold),
                           ),
                         ),
                         SizedBox(width: 5),
@@ -75,7 +77,8 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                     SizedBox(height: 30),
                   ],
                 ),
-                // DecorationCard()
+                //TODO: DECORATE CARD
+//                 DecorationCard()
 // LayoutBuilder(builder: (context, constraints) {
 //                       return Container(
 //                         height: constraints.maxHeight,
